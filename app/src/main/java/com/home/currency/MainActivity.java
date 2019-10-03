@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 
 import java.text.DecimalFormat;
-import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "convert: " + number);
             number = number / us;
             DecimalFormat df = new DecimalFormat("#.0000");
-            showAlert("Result" , "USD is " + df.format(number));
+            showAlert(getString(R.string.result) , getString(R.string.usd_is) + df.format(number));
         }catch (Exception e){
-            showAlert("Problem" , "Please enter your NTD amount");
+            showAlert(getString(R.string.problem) , getString(R.string.please_enter_ntd));
         }
     }
 
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle(title)
                 .setMessage(content)
-                .setPositiveButton("OK" , null)
+                .setPositiveButton(getString(R.string.ok) , null)
                 .show();
     }
 }
